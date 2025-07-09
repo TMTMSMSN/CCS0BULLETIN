@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CCS Digital Bulletin Board</title>
+  <style>
+    body {
+      background-color: #101820;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #00539C;
+      padding: 20px;
+      text-align: center;
+      font-size: 36px;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
+    }
+    nav a {
+      display: block;
+      width: 70%;
+      max-width: 600px;
+      padding: 18px;
+      margin: 12px 0;
+      background: #2E8B57;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 22px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    nav a:focus, nav a:hover {
+      background: #66BB6A;
+      outline: none;
+    }
+    section {
+      padding: 40px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    section h2 {
+      color: #00539C;
+      margin-bottom: 20px;
+    }
+    .back {
+      display: block;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #66BB6A;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>CCS Digital Bulletin Board</header>
+
+  <nav id="menu">
+    <a href="#vision" tabindex="1">Vision</a>
+    <a href="#mission" tabindex="2">Mission</a>
+    <a href="#objectives" tabindex="3">Objectives</a>
+    <a href="#courses" tabindex="4">Courses Offered (BSIT)</a>
+    <a href="#enrollment" tabindex="5">Summary of Enrollment</a>
+    <a href="#history" tabindex="6">History of CCS</a>
+  </nav>
+
+  <section id="vision">
+    <h2>Vision</h2>
+    <p>To be a center of excellence in Information Technology education that produces globally competitive and morally upright professionals committed to innovation and service.</p>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <section id="mission">
+    <h2>Mission</h2>
+    <p>The College of Computer Studies is dedicated to providing quality education through relevant curriculum, competent faculty, and industry-aligned training that empower students to become effective contributors to the ever-evolving field of computing and information technology.</p>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <section id="objectives">
+    <h2>Objectives</h2>
+    <ul>
+      <li>To develop technically proficient IT graduates who are capable of designing, developing, and managing information systems.</li>
+      <li>To promote ethical, social, and environmental responsibility in the practice of information technology.</li>
+      <li>To engage in research, innovation, and extension programs that contribute to community and national development.</li>
+      <li>To foster strong linkages with industry partners and continually align academic programs with current technological trends.</li>
+    </ul>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <section id="courses">
+    <h2>Courses Offered (BSIT)</h2>
+    <p><strong>Bachelor of Science in Information Technology (BSIT)</strong><br>
+    The BSIT program prepares students for a career in the field of Information Technology. It covers the study of computer systems, software development, networking, database management, and systems analysis. Graduates are equipped to design, implement, and manage IT solutions in various business and organizational settings.</p>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <section id="enrollment">
+    <h2>Summary of Enrollment</h2>
+    <p>As of Academic Year 2025–2026, the College of Computer Studies has an enrollment of over 800 students across all year levels. The consistent growth reflects the increasing demand for quality IT education and the college's strong reputation in the region.</p>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <section id="history">
+    <h2>History of CCS</h2>
+    <p>The College of Computer Studies (CCS) was established in [Year] to respond to the growing need for education in information and communication technology. What started as a small department has now evolved into a full‑fledged college offering comprehensive programs in IT education. CCS has since produced hundreds of graduates who have become successful IT professionals locally and internationally. The college continues to uphold excellence in teaching, research, and community service.</p>
+    <a href="#" class="back" tabindex="7">← Back to Menu</a>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const menu = document.getElementById('menu');
+
+    menu.addEventListener('click', e => {
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+        const target = e.target.getAttribute('href').substring(1);
+        sections.forEach(sec => sec.id === target ? sec.classList.add('active') : sec.classList.remove('active'));
+        menu.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.back').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        sections.forEach(sec => sec.classList.remove('active'));
+        menu.style.display = 'flex';
+      });
+    });
+  </script>
+
+</body>
+</html>
